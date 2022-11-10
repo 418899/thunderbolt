@@ -1,14 +1,50 @@
-let x = 0
+let dx = 0
 let y = 0
-let z = 1
+let x = 0
 basic.forever(function () {
-    if (x <= 0) {
-        z = 1
-    } else if (x >= 4) {
-        z = -1
-    }
-    x += z
-    led.plot(x, y)
-    basic.pause(100)
     basic.clearScreen()
+    y = 0
+    if (x == 0) {
+        dx = 1
+    } else if (x == 4) {
+        dx = -1
+    }
+    x += dx
+    for (let index = 0; index < 5; index++) {
+        led.plot(x, y)
+        y += 1
+    }
+    basic.pause(150)
+})
+basic.forever(function () {
+    basic.clearScreen()
+    basic.pause(25)
+    y = 0
+    if (x == 0) {
+        dx = 1
+    } else if (x == 4) {
+        dx = -1
+    }
+    x += dx
+    for (let index = 0; index < 5; index++) {
+        led.plotBrightness(x, y, 150)
+        y += 1
+    }
+    basic.pause(150)
+})
+basic.forever(function () {
+    basic.clearScreen()
+    basic.pause(50)
+    y = 0
+    if (x == 0) {
+        dx = 1
+    } else if (x == 4) {
+        dx = -1
+    }
+    x += dx
+    for (let index = 0; index < 5; index++) {
+        led.plotBrightness(x, y, 50)
+        y += 1
+    }
+    basic.pause(150)
 })
